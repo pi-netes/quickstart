@@ -38,9 +38,13 @@ bash $SCRIPT_DIR/installs/aur.sh
 
 echo installing kubetools...
 cd /opt
-sudo -u $USERNAME git clone
+git clone https://github.com/pi-netes/kubetools.git
 ln -s /opt/kubetools/kubetools.sh /usr/local/bin/kubetools
 sed -i 's/SCRIPT_DIR=.*/SCRIPT_DIR=\/opt\/kubetools/' /opt/kubetools/kubetools.sh
+
+echo cloning deployments...
+sudo -u $USERNAME cd $HOME
+sudo -u $USERNAME git clone https://github.com/pi-netes/deployments.git
 
 echo provisioning cluster...
 sudo -u $USERNAME kubetools

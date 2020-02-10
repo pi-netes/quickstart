@@ -21,6 +21,7 @@ pacman -S --noconfirm \
   go \
   make \
   neovim \
+  openvpn \
   ranger \
   socat \
   sudo \
