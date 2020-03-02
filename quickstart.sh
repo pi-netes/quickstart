@@ -43,8 +43,9 @@ ln -s /opt/kubetools/kubetools.sh /usr/local/bin/kubetools
 sed -i 's/SCRIPT_DIR=.*/SCRIPT_DIR=\/opt\/kubetools/' /opt/kubetools/kubetools.sh
 
 echo cloning deployments...
-sudo -u $USERNAME cd $HOME
-sudo -u $USERNAME git clone https://github.com/pi-netes/deployments.git
+cd /home/$USERNAME
+git clone https://github.com/pi-netes/deployments.git
+chown -R j:users deployments
 
 echo provisioning cluster...
 sudo -u $USERNAME kubetools
